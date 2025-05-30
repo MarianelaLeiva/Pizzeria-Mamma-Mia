@@ -1,4 +1,6 @@
 import './navbar.css';
+import {formatPrice} from '../assets/helpers/formatPrice';
+
 
 const Navbar = () => {
   const total = 25000;
@@ -12,7 +14,7 @@ const Navbar = () => {
             <li>🍕Home</li>
             <li>{token ? '🔓Profile' : '🔐Login'}</li>
             <li>{token ? '🔒Logout' : '🔐Register'}</li>
-            <li className="op-total">🛒Total: ${total}</li>
+            <li className="op-total">🛒Total: {formatPrice(total)}</li>
           </ul>
         </div>
       </div>

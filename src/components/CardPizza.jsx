@@ -1,4 +1,5 @@
 import './cardpizza.css';
+import {formatPrice} from '../assets/helpers/formatPrice';
 
 const CardPizza = (props) => {
   return (
@@ -11,7 +12,7 @@ const CardPizza = (props) => {
             <h4 className='title'>Ingredientes:</h4>
             <p>🍕{props.ingredients.join(', ')}</p>
           </div>
-          <p className="card-price">Precio: ${props.price}</p>
+          <p className="card-price">Precio: {formatPrice(props.price)}</p>
           <div className='btnes'>
             <a href="#" className="btnVer">Ver Más👀</a>
             <a href="#" className="btnAñadir">Añadir🛒</a>
