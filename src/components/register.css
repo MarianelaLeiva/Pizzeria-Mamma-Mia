@@ -1,0 +1,35 @@
+.container{
+    margin-top: 1rem;
+}
+
+.tituloRegister{
+    text-align: center;
+}
+
+.formSection{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.form{
+    background-color: var(--colorNavbar);
+    padding: 1rem;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.form-label{
+    color: #fff;
+}
+
+.btn.button {
+  background-color:  #186C7F;
+  border: 1px solid #186C7F;
+  color: white;
+}
+
+.message{
+    color: orange;
+    text-align: center;
+}
