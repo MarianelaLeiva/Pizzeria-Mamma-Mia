@@ -9,6 +9,7 @@
     border: 1px solid #ECECEC;
     border-radius: 10px; 
     overflow: hidden;
+    height: auto;
 }
 
 .image-card {
@@ -16,33 +17,45 @@
   height: 200px;
   object-fit: cover;
   display: block;
-
 }
 
 .card-title{
     border-bottom: 1px solid #ECECEC;
     padding: 10px 10px 10px 10px;
     font-size: 20px;
+    text-transform: capitalize;
+}
 
+.description{
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 8px 0 8px;
 }
 
 .card-ingredients{
-    border-bottom: 1px solid #ECECEC;
-    height: 50px;
     text-align: center;
-    font-size: 14px;
-    padding-top: 5px;
+    font-size: 10px;
+    padding-block: 5px;
+    text-align: center;
+
 }
 
 .title{
     color: grey;
     font-weight: 400;
+    font-size: 15px;
+}
+
+.list-ingredients{
+    list-style: none;
 }
 
 .card-price{
     text-align: center;
     padding-top: 5px;
     font-weight: bold;
+    font-size: 15px;
+    border-top: 1px solid #ECECEC;
 }
 
 .btnes{
