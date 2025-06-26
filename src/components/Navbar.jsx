@@ -1,5 +1,6 @@
 import './navbar.css';
 import {formatPrice} from '../assets/helpers/formatPrice';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -11,10 +12,10 @@ const Navbar = () => {
         <h2 className='titulo'>Pizzería Mamma Mia!</h2>
         <div className="contenedor-menu">
           <ul className="menu">
-            <li>🍕Home</li>
-            <li>{token ? '🔓Profile' : '🔐Login'}</li>
-            <li>{token ? '🔒Logout' : '🔐Register'}</li>
-            <li className="op-total">🛒Total: {formatPrice(total)}</li>
+            <li> <Link to="/" >🍕Home</Link> </li>
+            <li> <Link  to="/login" > {token ? '🔓Profile' : '🔐Login'} </Link> </li>
+            <li> <Link to="/register" >{token ? '🔒Logout' : '🔐Register'}</Link> </li>
+            <li className="op-total"> <Link to="/cart" >🛒Total: {formatPrice(total)}</Link> </li>
           </ul>
         </div>
       </div>

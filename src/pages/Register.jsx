@@ -35,7 +35,7 @@ const Register = () => {
     }
 
   return (
-    <div className='container'>
+    <main className='container'>
         <h1 className='tituloRegister'>Registro</h1>
         <section className="formSection">
             <form className='form' onSubmit={validarDatos}> 
@@ -58,7 +58,7 @@ const Register = () => {
                 <button type="submit" className="btn button">Enviar</button>
             </form>
         </section>
-    </div>
+    </main>
     
   )
 }

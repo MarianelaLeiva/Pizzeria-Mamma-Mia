@@ -24,7 +24,7 @@ export const Login = () => {
         }
     
     return (
-      <div className='container'>
+      <main className='container'>
           <h1 className='tituloLogin'>Login</h1>
           <section className="formSection">
               <form className='form' onSubmit={validarDatos}> 
@@ -42,7 +42,7 @@ export const Login = () => {
                   <button type="submit" className="btn button">Enviar</button>
               </form>
           </section>
-      </div>
+      </main>
       
     )
 }

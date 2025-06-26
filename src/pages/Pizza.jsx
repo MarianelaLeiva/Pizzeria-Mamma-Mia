@@ -1,4 +1,4 @@
-import CardPizza from "./CardPizza";
+import CardPizza from "../components/CardPizza";
 import { useEffect, useState } from "react";
 import './cardPizza.css';
 
@@ -24,7 +24,7 @@ export const Pizza = () => {
       };
 
   return (
-    <>
+    <main>
         <div className="container-card">
         <CardPizza
         key={pizza.id}
@@ -34,7 +34,7 @@ export const Pizza = () => {
         ingredients={pizza.ingredients}
         img={pizza.img}/>
         </div>
-    </>
+    </main>
 
   )
 }

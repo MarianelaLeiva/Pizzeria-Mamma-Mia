@@ -31,7 +31,7 @@ const Cart = () => {
       const total = cart.reduce((acc, item) => acc + item.price * item.count, 0);
 
       return (
-        <div className="container mt-4">
+        <main className="container mt-4">
           <h2 className="mb-4">Detalles del pedido:</h2>
 
           {cart.length === 0 ? (
@@ -81,7 +81,7 @@ const Cart = () => {
               </div>
             </>
           )}
-        </div>
+        </main>
       );
     };
 export default Cart

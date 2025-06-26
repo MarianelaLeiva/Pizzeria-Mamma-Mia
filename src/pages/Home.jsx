@@ -1,5 +1,5 @@
-import Header from "./Header";
-import CardPizza from "./CardPizza";
+import Header from "../components/Header";
+import CardPizza from "../components/CardPizza";
 import { useEffect, useState } from "react";
  
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
   setPizzas(data); 
   };
   return (
-    <>
+    <main>
         <Header/>
         <div className="container-card">
           {pizzas.map((pizza) => (
@@ -30,7 +30,7 @@ const Home = () => {
             img={pizza.img}/>
           ))}
         </div>
-    </>
+    </main>
   )
 }
 
