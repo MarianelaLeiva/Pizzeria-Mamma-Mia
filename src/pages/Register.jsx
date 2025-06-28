@@ -35,7 +35,7 @@ const Register = () => {
     }
 
   return (
-    <main className='container'>
+    <main className='container vh-100 align-items-center justify-content-center mt-4 mb-4'>
         <h1 className='tituloRegister'>Registro</h1>
         <section className="formSection">
             <form className='form' onSubmit={validarDatos}> 

@@ -1,6 +1,6 @@
 import CardPizza from "../components/CardPizza";
 import { useEffect, useState } from "react";
-import './cardPizza.css';
+import  '../components/cardPizza.css';
 
 export const Pizza = () => {
     const [pizza, setPizza] = useState({

@@ -13,6 +13,7 @@ const Navbar = () => {
         <div className="contenedor-menu">
           <ul className="menu">
             <li> <Link to="/" >🍕Home</Link> </li>
+            <li> <Link to="/profile" > Profile👤</Link></li>
             <li> <Link  to="/login" > {token ? '🔓Profile' : '🔐Login'} </Link> </li>
             <li> <Link to="/register" >{token ? '🔒Logout' : '🔐Register'}</Link> </li>
             <li className="op-total"> <Link to="/cart" >🛒Total: {formatPrice(total)}</Link> </li>
