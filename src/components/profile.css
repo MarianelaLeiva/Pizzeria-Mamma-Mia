@@ -1,0 +1,10 @@
+
+.card-header-profile{
+    background-color: var(--colorNavbar);
+
+    h2{
+        color: #fff;
+        font-size: 20px;
+        margin: 0;
+    }
+}

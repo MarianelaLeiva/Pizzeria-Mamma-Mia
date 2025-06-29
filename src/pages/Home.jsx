@@ -16,19 +16,26 @@ const Home = () => {
   const data = await response.json();
   setPizzas(data); 
   };
+
+
   return (
     <main>
         <Header/>
         <div className="container-card">
-          {pizzas.map((pizza) => (
+          {Array.isArray(pizzas) && pizzas.length > 0 ? (
+           pizzas.map((pizza) =>  (
             <CardPizza
-            key={pizza.id}
-            name={pizza.name}
-            desc={pizza.desc}
-            price={pizza.price}
-            ingredients={pizza.ingredients}
-            img={pizza.img}/>
-          ))}
+              key={pizza.id}
+              id={pizza.id}
+              name={pizza.name}
+              desc={pizza.desc}
+              price={pizza.price}
+              ingredients={pizza.ingredients}
+              img={pizza.img}/>
+          ))
+          ) : (
+            <p>Cargando pizzas...</p>
+          )}
         </div>
     </main>
   )

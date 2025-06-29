@@ -1,13 +1,16 @@
 import './App.css'
-import Cart from './pages/Cart';
+import { Route, Routes } from 'react-router-dom';
+
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+
+import Profile from './components/Profile';
+
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
 import Pizza from './pages/Pizza';
+import Cart from './pages/Cart';
 import Register from './pages/Register';
-import { Route, Routes } from 'react-router-dom';
-import Profile from './components/Profile';
 import NotFound from './pages/NotFound';
 
 

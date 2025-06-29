@@ -13,6 +13,7 @@
     gap: 5px;
     list-style: none;
     width: 100%;
+    margin-bottom: 0px;
 
     li{
         color: #fff;
@@ -21,6 +22,11 @@
         padding: 5px;
         font-size: 10px;
         cursor: pointer;
+
+        .link-nav{
+            text-decoration: none;
+            color: inherit;
+        }
     }
     .op-total{
             margin-left: auto;

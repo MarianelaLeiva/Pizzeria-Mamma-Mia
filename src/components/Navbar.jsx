@@ -12,11 +12,11 @@ const Navbar = () => {
         <h2 className='titulo'>Pizzería Mamma Mia!</h2>
         <div className="contenedor-menu">
           <ul className="menu">
-            <li> <Link to="/" >🍕Home</Link> </li>
-            <li> <Link to="/profile" > Profile👤</Link></li>
-            <li> <Link  to="/login" > {token ? '🔓Profile' : '🔐Login'} </Link> </li>
-            <li> <Link to="/register" >{token ? '🔒Logout' : '🔐Register'}</Link> </li>
-            <li className="op-total"> <Link to="/cart" >🛒Total: {formatPrice(total)}</Link> </li>
+            <li> <Link to="/" className='link-nav' >🍕Home</Link> </li>
+            <li> <Link to="/profile" className='link-nav' > Profile👤</Link></li>
+            <li> <Link  to="/login" className='link-nav' > {token ? '🔓Profile' : '🔐Login'} </Link> </li>
+            <li> <Link to="/register" className='link-nav' >{token ? '🔒Logout' : '🔐Register'}</Link> </li>
+            <li className="op-total" > <Link to="/cart" className='link-nav' >🛒Total: {formatPrice(total)}</Link> </li>
           </ul>
         </div>
       </div>
