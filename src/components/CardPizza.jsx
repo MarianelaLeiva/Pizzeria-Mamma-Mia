@@ -1,7 +1,19 @@
 import './cardpizza.css';
-import {formatPrice} from '../assets/helpers/formatPrice';
+import { formatPrice } from '../assets/helpers/formatPrice';
+import { useContext } from 'react';
+import { CartContext } from '../context/cartContext';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
-const CardPizza = ({ name, ingredients, price, img, desc }) => {
+const CardPizza = ({ id, img, name, price, ingredients, desc }) => {
+  const { addCart } = useContext(CartContext);
+
+  const handleAdd = () => {
+    const pizza = {id, name, price, img, count: 1};
+    addCart(pizza); 
+    Swal.fire("Pizza añadida!", "Ya está en el carrito 🛒", "success");
+  };
+
   return (
     <>
       <div className="card">
@@ -19,7 +31,7 @@ const CardPizza = ({ name, ingredients, price, img, desc }) => {
           <p className="card-price">Precio: {formatPrice(price)}</p>
           <div className='btnes'>
             <a href="#" className="btnVer">Ver Más👀</a>
-            <a href="#" className="btnAñadir">Añadir🛒</a>
+            <button className="btnAñadir" onClick={handleAdd}>Añadir🛒</button>
           </div>
         </div>
       </div>

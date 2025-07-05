@@ -1,44 +1,23 @@
-import { useState } from 'react';
-import {pizzaCart} from '../assets/helpers/pizzas';
-import {formatPrice} from '../assets/helpers/formatPrice';
+import { useContext } from 'react';
+import { formatPrice } from '../assets/helpers/formatPrice';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CartContext } from '../context/cartContext';
 
 
 const Cart = () => {
-    const [cart, setCart] = useState(pizzaCart);
+    const { products, addCart, removeCart, getTotal } = useContext(CartContext);
 
-      // Aumentar cantidad
-      const increase = (id) => {
-        setCart((prevCart) =>
-          prevCart.map((item) =>
-            item.id === id ? { ...item, count: item.count + 1 } : item
-          )
-        );
-      };
-
-      // Disminuir cantidad o eliminar si es 0
-      const decrease = (id) => {
-        setCart((prevCart) =>
-          prevCart
-            .map((item) =>
-              item.id === id ? { ...item, count: item.count - 1 } : item
-            )
-            .filter((item) => item.count > 0)
-        );
-      };
-
-      // Calcular total
-      const total = cart.reduce((acc, item) => acc + item.price * item.count, 0);
+    const total = getTotal();
 
       return (
         <main className="container mt-4 vh-100 align-items-center justify-content-center mb-4">
           <h2 className="mb-4">Detalles del pedido:</h2>
 
-          {cart.length === 0 ? (
+          {products.length === 0 ? (
             <p className="text-center">Tu carrito está vacío (por ahora 😁)</p>
           ) : (
             <>
-              {cart.map((pizza) => (
+              {products.map((pizza) => (
                 <div
                   key={pizza.id}
                   className="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
@@ -60,14 +39,14 @@ const Cart = () => {
                   <div className="d-flex align-items-center gap-2">
                     <button
                       className="btn btn-outline-danger btn-sm"
-                      onClick={() => decrease(pizza.id)}
+                      onClick={() => removeCart(pizza.id)}
                     >
                       -
                     </button>
                     <span className="fw-bold">{pizza.count}</span>
                     <button
                       className="btn btn-outline-primary btn-sm"
-                      onClick={() => increase(pizza.id)}
+                      onClick={() => addCart(pizza)}
                     >
                       +
                     </button>
