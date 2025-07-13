@@ -2,12 +2,15 @@ import { useContext } from 'react';
 import { formatPrice } from '../assets/helpers/formatPrice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartContext } from '../context/cartContext';
+import { UserContext } from '../context/userContext';
 
 
 const Cart = () => {
     const { products, addCart, removeCart, getTotal } = useContext(CartContext);
 
     const total = getTotal();
+
+    const {userToken} = useContext(UserContext);
 
       return (
         <main className="container mt-4 vh-100 align-items-center justify-content-center mb-4">
@@ -56,7 +59,11 @@ const Cart = () => {
 
               <div className="text-start mt-4 mb-4">
                 <h4>Total: {formatPrice(total)}</h4>
-                <button className="btn btn-dark mt-2">Pagar</button>
+                {userToken ?(
+                  <button className="btn btn-dark mt-2">Pagar</button>
+                ) : (
+                  <button className="btn btn-dark mt-2" disabled>Pagar</button>
+                )}
               </div>
             </>
           )}

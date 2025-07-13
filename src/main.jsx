@@ -5,13 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 import App from './App.jsx'
 import CartProvider from './context/cartContext.jsx'
+import UserProvider from './context/userContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CartProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <UserProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UserProvider>
     </CartProvider>
   </StrictMode>,
 )

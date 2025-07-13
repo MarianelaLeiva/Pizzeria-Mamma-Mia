@@ -8,15 +8,15 @@ const CartProvider = ({children}) => {
     const addCart = (pizza) => {
     const exists = products.find((p) => p.id === pizza.id);
 
-    if (exists) {
-      const updated = products.map((p) =>
-        p.id === pizza.id ? { ...p, count: p.count + 1 } : p
-      );
-      setProducts(updated);
-    } else {
-      setProducts([...products, { ...pizza, count: 1 }]);
-    }
-  };
+      if (exists) {
+        const updated = products.map((p) =>
+          p.id === pizza.id ? { ...p, count: p.count + 1 } : p
+        );
+        setProducts(updated);
+      } else {
+        setProducts([...products, { ...pizza, count: 1 }]);
+      }
+    };
 
     const removeCart = (id) => {
         const exists = products.find((p) => p.id === id);

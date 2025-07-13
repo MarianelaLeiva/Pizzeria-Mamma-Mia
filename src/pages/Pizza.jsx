@@ -11,17 +11,27 @@ export const Pizza = () => {
         ingredients: [],
         img: null
     });
+
+    const [error, setError] = useState(null);
     
-      useEffect(() => {
-        consultarApi();
-      }, []);
-    
-      const consultarApi = async () => {
-      const url = "http://localhost:5000/api/pizzas/p001";
-      const response = await fetch(url);
-      const data = await response.json();
-      setPizza(data); 
-      };
+    useEffect(() => {
+      const consultarAPI = async () => {
+        const url = "http://localhost:5000/api/pizzas";
+        try {
+          const response = await fetch(`${url}/${id}`);
+          if (!response.ok) {
+            throw new Error ("No se encontro ninguna Pizza");
+          }
+          const data = await response.json();
+          setPizza(data); 
+          setError(null);
+        } catch (err) {
+          setError(err.message);
+          setPizza(null);
+        }
+      }
+      consultarAPI();
+    }, []);
 
   return (
     <main>
@@ -35,7 +45,6 @@ export const Pizza = () => {
         img={pizza.img}/>
         </div>
     </main>
-
   )
 }
 

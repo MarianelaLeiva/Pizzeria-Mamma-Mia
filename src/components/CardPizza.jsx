@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { CartContext } from '../context/cartContext';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import { useNavigate } from 'react-router-dom';
 
 const CardPizza = ({ id, img, name, price, ingredients, desc }) => {
   const { addCart } = useContext(CartContext);
@@ -13,6 +14,12 @@ const CardPizza = ({ id, img, name, price, ingredients, desc }) => {
     addCart(pizza); 
     Swal.fire("Pizza añadida!", "Ya está en el carrito 🛒", "success");
   };
+
+  const navigate = useNavigate();
+    const goToPizza = () => {
+      navigate(`/pizzas/${id}`);
+    }
+  
 
   return (
     <>
@@ -30,7 +37,7 @@ const CardPizza = ({ id, img, name, price, ingredients, desc }) => {
           </div>
           <p className="card-price">Precio: {formatPrice(price)}</p>
           <div className='btnes'>
-            <a href="#" className="btnVer">Ver Más👀</a>
+            <button className="btnVer" onClick={goToPizza}>Ver Más👀</button>
             <button className="btnAñadir" onClick={handleAdd}>Añadir🛒</button>
           </div>
         </div>
