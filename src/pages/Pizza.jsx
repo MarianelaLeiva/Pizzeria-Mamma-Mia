@@ -1,6 +1,7 @@
 import CardPizza from "../components/CardPizza";
 import { useEffect, useState } from "react";
 import  '../components/cardPizza.css';
+import { useParams } from "react-router-dom";
 
 export const Pizza = () => {
     const [pizza, setPizza] = useState({
@@ -13,6 +14,8 @@ export const Pizza = () => {
     });
 
     const [error, setError] = useState(null);
+
+    const {id} = useParams();
     
     useEffect(() => {
       const consultarAPI = async () => {
@@ -35,7 +38,7 @@ export const Pizza = () => {
 
   return (
     <main>
-        <div className="container-card">
+        <div className="card mx-auto" style={{ width: '30rem' }}>
         <CardPizza
         key={pizza.id}
         name={pizza.name}

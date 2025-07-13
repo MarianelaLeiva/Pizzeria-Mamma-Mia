@@ -17,7 +17,7 @@ const CardPizza = ({ id, img, name, price, ingredients, desc }) => {
 
   const navigate = useNavigate();
     const goToPizza = () => {
-      navigate(`/pizzas/${id}`);
+      navigate(`/pizza/${id}`);
     }
   
 
