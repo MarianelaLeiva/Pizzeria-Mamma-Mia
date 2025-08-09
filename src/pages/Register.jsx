@@ -1,37 +1,44 @@
 import { useState } from 'react';
+import { useUser } from '../context/UserContext';
 import './register.css';
 
 
 const Register = () => {
+    const { register } = useUser();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState(false);
 
-    const validarDatos = (e) => {
+    const validarDatos = async (e) => {
         e.preventDefault()
         
         if (!email.trim() || !password.trim() || !password2.trim()) {
             setError(true)
             setMessage("¡Todos los campos son obligatorios!")
             return
-        }
-        else if(password != password2){
+        } else if (password != password2){
             setError(true)
             setMessage("¡Las contraseñas no coinciden!")
             setPassword('')
             setPassword2('')
             return
         }
-        setMessage("¡Formulario enviado con exito!")
-        setError(false)
 
+        const response = await register({ email, password });
 
-        setEmail('')
-        setPassword('')
-        setPassword2('')        
-    
+        if (response.success) {
+            setError(false);
+            setMessage("¡Registro exitoso!");
+            setEmail('');
+            setPassword('');
+            setPassword2('');
+        } else {
+            setError(true);
+            setMessage(response.message || "¡Error al registrarse!");
+        }
+
     }
 
   return (

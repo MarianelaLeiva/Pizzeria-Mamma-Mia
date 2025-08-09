@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useUser } from '../context/UserContext';
 import './login.css';
 
 
 export const Login = () => {
+    const { login } = useUser();
     const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
-        const [message, setMessage] = useState("");
-        const [error, setError] = useState(false);
+    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState(false);
     
-        const validarDatos = (e) => {
+        const validarDatos = async (e) => {
             e.preventDefault()
             
             if (!email.trim() || !password.trim()) {
@@ -16,11 +18,25 @@ export const Login = () => {
                 setMessage("¡Todos los campos son obligatorios!")
                 return
             }
-            setMessage("¡Formulario enviado con exito!")
-            setError(false)
-    
-            setEmail('')
-            setPassword('')
+
+            if (password.length < 6) {
+                setError(true)
+                setMessage("¡La contraseña debe tener al menos 6 caracteres!")
+                return
+            }
+
+            const response = await login({ email, password });
+
+            if (response.success) {
+                setError(false);
+                setMessage("¡Inicio de sesión exitoso!");
+                setEmail('');
+                setPassword('');
+                
+            } else {
+                setError(true);
+                setMessage(response.message || "¡Error al iniciar sesión!");
+            }
         }
     
     return (

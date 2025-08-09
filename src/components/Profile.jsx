@@ -1,11 +1,10 @@
 import './profile.css';
+import { useUser } from '../context/UserContext';
 
-const userEmail = "usuario@ejemplo.com"
-const handleLogout = () => {
-  alert("Función no lista aún");
-}
 
 const Profile = () => {
+  const {email, logoutUser} = useUser();
+  
   return (
     <main>
         <div className='container vh-100 align-items-center justify-content-center mt-4 mb-4' >
@@ -15,9 +14,9 @@ const Profile = () => {
                 </div>
             
                 <div className='card-body '>
-                    <p className='card-text'>Email: {userEmail}</p>
+                    <p className='card-text'>Email: {email}</p>
                     <button className='btn btn-danger' 
-                    onClick={handleLogout}>Cerrar sesión</button>
+                    onClick={logoutUser}>Cerrar sesión</button>
                 </div>
             </div>
         </div>
